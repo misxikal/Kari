@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "kashimarusbycop";
+    src: url("./fonts/kashimarusbycop.otf");
+}
+
+header{
+    font-family: "kashimarusbycop";
+    width: 100%;
+    font-size: 30px;
+    background-color: #00AB6F;
+    color: #66E275;
+    display: flex;
+    align-items: center;
+}
+header>img{
+    width: 100px;
+    margin: 20px;
+}

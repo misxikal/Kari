@@ -1,0 +1,51 @@
+.Info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 100%;
+}
+.barBio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #60D6A9;
+    padding: 10px;
+    width: 250px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.barBio input{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #043A6B;
+    color: white;
+}
+.barBio input:hover{
+    background-color: #26537C;
+    cursor: pointer;
+}
+.addBar{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+    color: rgba(91, 91, 91, 0.507);
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.079);
+    transition: 0.3s;
+}
+.addBar:hover{
+    height: 290px;
+    width: 250px;
+    transition: 0.3s;
+    cursor: pointer;
+    font-size: 110px;
+    background-color: rgba(0, 0, 0, 0.171);
+    color: rgb(91, 91, 91);
+}
