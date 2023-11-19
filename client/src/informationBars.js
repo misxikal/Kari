@@ -1,28 +1,33 @@
 import './informationBars.css';
 import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
+import InputMask from 'react-input-mask';
 
 
 function Information(){
 
+    const [nameBar, setNameBar] = useState('');
     const [nameAdmin, setNameAdmin] = useState('');
     const [nameAddress, setNameAddress] = useState('');
-    const [phone, setPhone] = useState('');
+    const [phoneBar, setPhoneBar] = useState('');
 
     function addBar(){
+        console.log(phoneBar);
         fetch('http://localhost:5000/infoBar', {
             method: "post",
             headers:{
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
+                nameBar:nameBar,
                 name:nameAdmin,
                 address:nameAddress,
-                phoneNumber:phone,
+                phoneBar:phoneBar,
             })
         })
-        .then(response => alert("Отправлено"))
+        .then(response => window.location.reload())
         .catch(error => console.error(error))
+        
     }
 
     const [infoBar, setInfoBar] = useState([]);
@@ -42,10 +47,11 @@ function Information(){
             {
                 infoBar.map((item =>(
                     <div className='barBio'>
-                        <h1>Название</h1>
+                        <h1>{item.nameBar}</h1>
                         <p>Владелец: {item.Name}</p>
                         <p>Адресс: {item.Address}</p>
-                        <p>Номер: {item.PhoneNumber}</p>
+                        <p>Номер админа: {item.PhoneNumber}</p>
+                        <p>Номер офиса: {item.numberBar}</p>
                         <input type='button' value={"Подробнее"}/>
                     </div>
                 )))
@@ -53,6 +59,10 @@ function Information(){
             }
         <Popup trigger={<div className='addBar'>+</div>} modal>
             <form>
+                <p>Название бара</p>
+                <input type='text' onChange={(e)=>{
+                    setNameBar(e.target.value);
+                }}/>
                 <p>Владелец</p>
                 <input type='text' onChange={(e)=>{
                     setNameAdmin(e.target.value);
@@ -62,10 +72,10 @@ function Information(){
                     setNameAddress(e.target.value);
                 }}/>
                 <p>Номер телефона</p>
-                <input type='text' onChange={(e)=>{
-                    setPhone(e.target.value);
+                <InputMask mask="+7 (999) 999 99-99" maskChar={null} type='text' onChange={(e)=>{
+                    setPhoneBar(e.target.value);
                 }}/>
-                <input type='button' value={"Добавить"} onClick={addBar}/>
+                <input type='button' id='addBar' value={"Добавить"} onClick={addBar}/>
             </form>
         </Popup>
             

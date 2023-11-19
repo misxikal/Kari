@@ -25,18 +25,20 @@ const connection = mysql.createConnection({
     }
  });
 
-const sql = "SELECT Admin.Name, Address, Admin.PhoneNumber FROM `Office` INNER JOIN Admin ON Office.id_Admin = Admin.id;"
-const addBar = "INSERT INTO Office(id_Admin, Address) VALUES (?,?)"
+const sql = "SELECT nameBar, Admin.Name, Address, Admin.PhoneNumber, numberBar FROM `Office` INNER JOIN Admin ON Office.id_Admin = Admin.id;"
+const addBar = "INSERT INTO Office(nameBar, id_Admin, Address, numberBar) VALUES (?,?,?,?)"
 
 app.post('/infoBar', (req, res)=>{
+
+  const nameBar = req.body.nameBar;
   const name = req.body.name;
   const address = req.body.address;
-  const phoneNumber = req.body.phoneNumber;
+  const phoneBar = req.body.phoneBar;
   
-  connection.query(addBar, [name,address,phoneNumber], (err,results)=>{
+  connection.query(addBar, [nameBar,name,address,phoneBar], (err,results)=>{
     console.log(err,results);
   })
-  console.log(address);
+  // console.log(nameBar);
 })
 
 app.listen(port, ()=> console.log(`Listening on port ${port}`));
@@ -44,7 +46,7 @@ app.listen(port, ()=> console.log(`Listening on port ${port}`));
 app.get('/infoBar', (req, res)=> {
   connection.query(sql, function(err, results) {
     if(err) console.log(err);
-    console.log(results)
+    // console.log(results)
     res.send(results);
   })
 })

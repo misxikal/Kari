@@ -1,8 +1,14 @@
+@font-face {
+    font-family: "kashimarusbycop";
+    src: url(./fonts/kashimarusbycop.otf);
+}
+
 .Info{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     margin: 20px;
     width: 100%;
 }
@@ -10,11 +16,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #60D6A9;
+    background-color: #00AB6F;
     padding: 10px;
-    width: 250px;
+    width: 300px;
     border-radius: 10px;
     margin: 10px;
+}
+.barBio h1{
+    font-family: "kashimarusbycop";
+    color: #66E275;
+    font-size: 45px;
+    margin: 5px;
 }
 .barBio input{
     border: none;
@@ -48,4 +60,34 @@
     font-size: 110px;
     background-color: rgba(0, 0, 0, 0.171);
     color: rgb(91, 91, 91);
+}
+.popup-overlay{
+    background-color: rgba(0, 0, 0, 0.492);
+}
+#popup-2{
+    background-color: #60D6A9;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+form>input{
+    padding: 5px;
+    width: 250px;
+}
+form>#addBar{
+    margin: 20px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    background-color:#26537C;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
 }
