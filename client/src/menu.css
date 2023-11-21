@@ -1,9 +1,14 @@
+.menu{
+    position: sticky;
+    top: -1px;
+    height: 100vh;
+    background-color: #00AB6F;
+}
 nav{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #00AB6F;
-    height: 100%;
+    
 }
 .but{
     background-color: #00AB6F;

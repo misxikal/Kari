@@ -64,7 +64,7 @@
 .popup-overlay{
     background-color: rgba(0, 0, 0, 0.492);
 }
-#popup-2{
+.popup-content{
     background-color: #60D6A9;
     padding: 30px;
     border-radius: 10px;

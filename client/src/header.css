@@ -12,7 +12,40 @@ header{
     display: flex;
     align-items: center;
 }
-header>img{
+.logo{
+    font-family: "kashimarusbycop";
+    width: 100%;
+    font-size: 30px;
+    background-color: #00AB6F;
+    color: #66E275;
+    display: flex;
+    align-items: center;
+}
+.logo>img{
     width: 100px;
     margin: 20px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+.logIn{
+    margin: 10px;
+}
+.logIn>input{
+    background-color: #66E275;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    width: 120px;
+    border: none;
+    border-radius: 5px;
+    transition: 0.1s;
+}
+.logIn>input:hover{
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.381);
+    transition: 0.1s;
+    background-color: #00AB6F;
+    cursor: pointer;
 }

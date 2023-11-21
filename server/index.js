@@ -27,6 +27,7 @@ const connection = mysql.createConnection({
 
 const sql = "SELECT nameBar, Admin.Name, Address, Admin.PhoneNumber, numberBar FROM `Office` INNER JOIN Admin ON Office.id_Admin = Admin.id;"
 const addBar = "INSERT INTO Office(nameBar, id_Admin, Address, numberBar) VALUES (?,?,?,?)"
+const login = "SELECT * FROM `Admin` WHERE PhoneNumber=? AND Password=?"
 
 app.post('/infoBar', (req, res)=>{
 
@@ -43,8 +44,45 @@ app.post('/infoBar', (req, res)=>{
 
 app.listen(port, ()=> console.log(`Listening on port ${port}`));
 
+app.post('/login', (req, res)=> {
+    let code,text;
+    let data = {
+      Name:"",
+      PhoneNumber:"",
+    };
+    const phone = req.body.phone;
+    const password = req.body.password;
+
+  connection.query(login,[phone,password], function(err, results) {
+    if(err){
+      res.send(dataArray);
+      let dataArray = [
+        code = 0,
+        text = "Все хуево",
+        data = {}
+      ]
+      res.send(dataArray);
+    }else if(results){
+      console.log(results);
+      let dataArray = [
+        code = 1,
+        text = "Все заебок!",
+        data = results[0],
+      ]
+    }else{
+      res.send(dataArray);
+      let dataArray = [
+        code = 0,
+        text = "Все хуево",
+        data = {}
+      ]
+      res.send(dataArray);
+    }
+  })
+})
+
 app.get('/infoBar', (req, res)=> {
-  connection.query(sql, function(err, results) {
+  connection.query(sql,function(err, results) {
     if(err) console.log(err);
     // console.log(results)
     res.send(results);

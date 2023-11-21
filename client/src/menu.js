@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function menu(){
 
         return (
-            <div>
+            <div className="menu">
                 <nav>
                     <Link className="but" to="/">Информация о барах</Link>
                     <Link className="but" to="/personal">Персонал</Link>
