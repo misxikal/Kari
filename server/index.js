@@ -44,6 +44,45 @@ app.post('/infoBar', (req, res)=>{
 
 app.listen(port, ()=> console.log(`Listening on port ${port}`));
 
+app.get('/login',(req,res)=>{
+  let code,text;
+    let data = {
+      Name:"",
+      PhoneNumber:"",
+    };
+    const phone = req.body.phone;
+    const password = req.body.password;
+    console.log(phone+password)
+  connection.query(login,[phone,password], function(err, results) {
+    if(err){
+      res.send(dataArray);
+      let dataArray = [
+        code = 0,
+        text = "Все хуево",
+        data = {}
+      ]
+      res.send(dataArray);
+    }else if(results){
+      console.log(results);
+      let dataArray = [
+        code = 1,
+        text = "Все заебок!",
+        data = results[0],
+      ]
+      console.log(dataArray);
+      res.send(dataArray);
+    }else{
+      res.send(dataArray);
+      let dataArray = [
+        code = 0,
+        text = "Все хуево",
+        data = {}
+      ]
+      res.send(dataArray);
+    }
+  })
+})
+
 app.post('/login', (req, res)=> {
     let code,text;
     let data = {
@@ -69,6 +108,8 @@ app.post('/login', (req, res)=> {
         text = "Все заебок!",
         data = results[0],
       ]
+      console.log(dataArray);
+      res.send(dataArray);
     }else{
       res.send(dataArray);
       let dataArray = [

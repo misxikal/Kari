@@ -1,8 +1,9 @@
+
 .menu{
     position: sticky;
     top: -1px;
     height: 100vh;
-    background-color: #00AB6F;
+    background-color: var(--color-primary);
 }
 nav{
     display: flex;
@@ -11,13 +12,13 @@ nav{
     
 }
 .but{
-    background-color: #00AB6F;
+    background-color: var(--color-primary);
     width: 200px;
     padding: 15px;
     text-align: center;
     text-decoration: none;
-    color: aliceblue;
+    color: var(--color-text);
 }
 .but:hover{
-    background-color: #2bcc94;
+    background-color: var(--color-button);
 }

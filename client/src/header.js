@@ -1,5 +1,4 @@
-import { render } from "@testing-library/react";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import "./header.css"
 import Logo from './image/logo.png';
 import Popup from 'reactjs-popup';
@@ -12,6 +11,7 @@ function Header(){
     const [password, setPassword] = useState('');
 
     function login(){
+        console.log(phone+password);
         fetch('http://localhost:5000/login',{
             method:"POST",
             headers:{
@@ -22,7 +22,7 @@ function Header(){
                 password:password
             })
         })
-        .then(response => console.log(response))
+        .then(response => console.log(response[0]))
     }
 
         return (

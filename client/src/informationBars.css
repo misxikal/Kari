@@ -3,6 +3,7 @@
     src: url(./fonts/kashimarusbycop.otf);
 }
 
+
 .Info{
     display: flex;
     flex-direction: row;
@@ -16,15 +17,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #00AB6F;
+    background-color: var(--color-primary);
     padding: 10px;
     width: 300px;
     border-radius: 10px;
     margin: 10px;
+    color: var(--color-text);
 }
 .barBio h1{
     font-family: "kashimarusbycop";
-    color: #66E275;
+    color: var(--color-button);
     font-size: 45px;
     margin: 5px;
 }
@@ -32,11 +34,11 @@
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
-    background-color: #043A6B;
-    color: white;
+    background-color: var(--color-button);
+    color: var(--color-text);
 }
 .barBio input:hover{
-    background-color: #26537C;
+    background-color: var(--color-button);
     cursor: pointer;
 }
 .addBar{
@@ -45,7 +47,7 @@
     align-items: center;
     justify-content: center;
     font-size: 90px;
-    color: rgba(91, 91, 91, 0.507);
+    color: var(--color-text);
     width: 200px;
     height: 250px;
     border-radius: 10px;
@@ -59,13 +61,13 @@
     cursor: pointer;
     font-size: 110px;
     background-color: rgba(0, 0, 0, 0.171);
-    color: rgb(91, 91, 91);
+    color: var(--color-text);
 }
 .popup-overlay{
-    background-color: rgba(0, 0, 0, 0.492);
+    background-color: rgba(0, 0, 0, 0.268);
 }
 .popup-content{
-    background-color: #60D6A9;
+    background-color: var(--color-primary);
     padding: 30px;
     border-radius: 10px;
     display: flex;
@@ -76,6 +78,7 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: var(--color-text);
 }
 form>input{
     padding: 5px;
@@ -86,8 +89,8 @@ form>#addBar{
     width: 200px;
     border-radius: 10px;
     border: none;
-    background-color:#26537C;
-    color: white;
+    background-color:var(--color-button);
+    color: var(--color-text);
     font-size: 14px;
     padding: 10px;
 }
