@@ -63,7 +63,7 @@ function Information(){
                 <input type='text' onChange={(e)=>{
                     setNameBar(e.target.value);
                 }}/>
-                <p>Владелец</p>
+                <p>Идентификатор сотрудника</p>
                 <input type='text' onChange={(e)=>{
                     setNameAdmin(e.target.value);
                 }}/>

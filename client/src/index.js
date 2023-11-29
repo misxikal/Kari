@@ -5,22 +5,26 @@ import Header from './header';
 import Menu from './menu';
 import Information from './informationBars';
 import reportWebVitals from './reportWebVitals';
+import Profile from './profile';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    
+    <BrowserRouter> 
     <Header />
     <div className='content'>
-    <BrowserRouter> 
       <Menu />
         <Routes>
             <Route path="/" element={<Information/>}/>
             <Route path="/personal" element={<p>Персонал</p>}/>
             <Route path="/tovar" element={<p>Товарный учет</p>}/>
+            <Route path='/profile' element={<Profile/>}/>
         </Routes>
+        </div>
       </BrowserRouter>
-    </div>
+    
   </React.StrictMode>
 );
 

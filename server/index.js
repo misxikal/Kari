@@ -5,7 +5,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const mysql = require("mysql2");
-app.use(cors());
+const fileUpload = require('express-fileupload')
+app.use(fileUpload())
+app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 // app.use(bodyParser);
@@ -44,80 +46,33 @@ app.post('/infoBar', (req, res)=>{
 
 app.listen(port, ()=> console.log(`Listening on port ${port}`));
 
-app.get('/login',(req,res)=>{
-  let code,text;
-    let data = {
-      Name:"",
-      PhoneNumber:"",
-    };
-    const phone = req.body.phone;
-    const password = req.body.password;
-    console.log(phone+password)
-  connection.query(login,[phone,password], function(err, results) {
-    if(err){
-      res.send(dataArray);
-      let dataArray = [
-        code = 0,
-        text = "Все хуево",
-        data = {}
-      ]
-      res.send(dataArray);
-    }else if(results){
-      console.log(results);
-      let dataArray = [
-        code = 1,
-        text = "Все заебок!",
-        data = results[0],
-      ]
-      console.log(dataArray);
-      res.send(dataArray);
-    }else{
-      res.send(dataArray);
-      let dataArray = [
-        code = 0,
-        text = "Все хуево",
-        data = {}
-      ]
-      res.send(dataArray);
-    }
-  })
-})
+// app.get('/login',(req,res)=>{
+//     const phone = req.body.phone;
+//     const password = req.body.password;
+//     console.log(phone+password)
+//   connection.query(login,[phone,password], function(err, results) {
+//     if(err){
+//       res.send({err:err});
+//     }else if(results){
+//       res.send(results);
+//     }else{
+//       res.send({message:"Wrong login/password combination!"});
+//     }
+//   })
+// })
 
 app.post('/login', (req, res)=> {
-    let code,text;
-    let data = {
-      Name:"",
-      PhoneNumber:"",
-    };
+    
     const phone = req.body.phone;
     const password = req.body.password;
 
   connection.query(login,[phone,password], function(err, results) {
     if(err){
-      res.send(dataArray);
-      let dataArray = [
-        code = 0,
-        text = "Все хуево",
-        data = {}
-      ]
-      res.send(dataArray);
+      res.send({err:err});
     }else if(results){
-      console.log(results);
-      let dataArray = [
-        code = 1,
-        text = "Все заебок!",
-        data = results[0],
-      ]
-      console.log(dataArray);
-      res.send(dataArray);
+      res.send(results);
     }else{
-      res.send(dataArray);
-      let dataArray = [
-        code = 0,
-        text = "Все хуево",
-        data = {}
-      ]
-      res.send(dataArray);
+      res.send({massege: "Wrong login/password combination!"});
     }
   })
 })
