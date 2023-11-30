@@ -53,9 +53,7 @@ function Header(){
                             <Popup trigger={<input type="button" value={"Войти"}/>} modal>
                                 <form>
                                     <p>Номер телефона</p>
-                                    <InputMask mask="+7 (999) 999 99-99" maskChar={null} type='text' onChange={(e)=>{
-                                        setPhone(e.target.value);
-                                    }}/>
+                                    <InputMask onChange={(e)=>{setPhone(e.target.value);}} autoFocus={false} type='text' mask="+7 (999) 999 99-99" maskChar={null} placeholder='+7 (999) 999 99-99'/>
                                     <p>Пароль</p>
                                     <input type="password" onChange={(e)=>{
                                         setPassword(e.target.value);

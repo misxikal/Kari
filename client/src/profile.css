@@ -1,0 +1,54 @@
+.name{
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--color-text);
+}
+.content-profile{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info-user{
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    padding: 100px;
+    border-radius: 10px;
+}
+.info-user>div{
+    padding: 20px;
+}
+#infoProf{
+    color: var(--color-text);
+}
+#infoProf h1{
+    color: var(--color-button);
+}
+#ava img{
+    width: 200px;
+    border-radius: 10px;
+}
+.karta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    padding: 100px;
+}
+.karta input{
+    padding: 10px;
+    width: 200px;
+    background-color: var(--color-button);
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.karta input:hover{
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.381);
+    color: var(--color-text);
+    cursor: pointer;
+    background-color: var(--color-primary);
+}

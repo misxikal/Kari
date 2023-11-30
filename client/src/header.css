@@ -21,14 +21,14 @@ header{
 .logo{
     font-family: "kashimarusbycop";
     width: 100%;
-    font-size: 30px;
+    font-size: 25px;
     background-color: var(--color-primary);
     color: var(--color-button);
     display: flex;
     align-items: center;
 }
 .logo>img{
-    width: 100px;
+    width: 90px;
     margin: 20px;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -42,9 +42,9 @@ header{
 .logIn>input{
     background-color: var(--color-button);
     color: var(--color-text);
-    font-size: 18px;
+    font-size: 16px;
     padding: 5px;
-    width: 120px;
+    width: 110px;
     border: none;
     border-radius: 5px;
     transition: 0.1s;

@@ -52,7 +52,6 @@ function Information(){
                         <p>Адресс: {item.Address}</p>
                         <p>Номер админа: {item.PhoneNumber}</p>
                         <p>Номер офиса: {item.numberBar}</p>
-                        <input type='button' value={"Подробнее"}/>
                     </div>
                 )))
                 
@@ -72,7 +71,7 @@ function Information(){
                     setNameAddress(e.target.value);
                 }}/>
                 <p>Номер телефона</p>
-                <InputMask mask="+7 (999) 999 99-99" maskChar={null} type='text' onChange={(e)=>{
+                <InputMask mask="+7 (999) 999 99-99" maskChar={null} type='text' placeholder='+7 (999) 999 99-99' onChange={(e)=>{
                     setPhoneBar(e.target.value);
                 }}/>
                 <input type='button' id='addBar' value={"Добавить"} onClick={addBar}/>

@@ -18,8 +18,8 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--color-primary);
-    padding: 10px;
-    width: 300px;
+    padding: 15px;
+    width: 270px;
     border-radius: 10px;
     margin: 10px;
     color: var(--color-text);
@@ -27,7 +27,7 @@
 .barBio h1{
     font-family: "kashimarusbycop";
     color: var(--color-button);
-    font-size: 45px;
+    font-size: 40px;
     margin: 5px;
 }
 .barBio input{
@@ -48,15 +48,15 @@
     justify-content: center;
     font-size: 90px;
     color: var(--color-text);
-    width: 200px;
-    height: 250px;
+    width: 180px;
+    height: 225px;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.079);
     transition: 0.3s;
 }
 .addBar:hover{
-    height: 290px;
-    width: 250px;
+    height: 260px;
+    width: 225px;
     transition: 0.3s;
     cursor: pointer;
     font-size: 110px;
