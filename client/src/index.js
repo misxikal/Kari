@@ -7,6 +7,7 @@ import Information from './informationBars';
 import reportWebVitals from './reportWebVitals';
 import Profile from './profile';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Personal from './personal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +19,7 @@ root.render(
       <Menu />
         <Routes>
             <Route path="/" element={<Information/>}/>
-            <Route path="/personal" element={<p>Персонал</p>}/>
+            <Route path="/personal" element={<Personal/>}/>
             <Route path="/tovar" element={<p>Товарный учет</p>}/>
             <Route path='/profile' element={<Profile/>}/>
         </Routes>

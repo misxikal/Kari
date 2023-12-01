@@ -29,6 +29,8 @@ const connection = mysql.createConnection({
 
 const sql = "SELECT nameBar, Admin.Name, Address, Admin.PhoneNumber, numberBar FROM `Office` INNER JOIN Admin ON Office.id_Admin = Admin.id;"
 const addBar = "INSERT INTO Office(nameBar, id_Admin, Address, numberBar) VALUES (?,?,?,?)"
+const addPersonal = "INSERT INTO Employees (Name, NumberPhone, Age, Post, id_Office) SELECT ?,?,?,?, id FROM Office WHERE nameBar = ?"
+const getPersonal = "SELECT Name, NumberPhone, Age, Post, Office.nameBar FROM `Employees` INNER JOIN Office ON id_Office = Office.id"
 const login = "SELECT * FROM `Admin` WHERE PhoneNumber=? AND Password=?"
 
 app.post('/infoBar', (req, res)=>{
@@ -39,9 +41,31 @@ app.post('/infoBar', (req, res)=>{
   const phoneBar = req.body.phoneBar;
   
   connection.query(addBar, [nameBar,name,address,phoneBar], (err,results)=>{
-    console.log(err,results);
+    // console.log(err,results);
   })
   // console.log(nameBar);
+})
+
+app.post('/personal', (req,res)=>{
+
+  const NamePers = req.body.NamePers;
+  const PhonePers = req.body.PhonePers;
+  const AgePers = req.body.AgePers;
+  const PostPers = req.body.PostPers;
+  const BarPers = req.body.BarPers;
+
+  connection.query(addPersonal, [NamePers,PhonePers,AgePers,PostPers,BarPers], (err, results)=>{
+    console.log(err,results);
+  })
+
+})
+
+app.post('/getPersonal', (req,res)=>{
+  connection.query(getPersonal,function(err, results) {
+    if(err) console.log(err);
+    // console.log(results)
+    res.send(results);
+  })
 })
 
 app.listen(port, ()=> console.log(`Listening on port ${port}`));
