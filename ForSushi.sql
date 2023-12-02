@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 28 2023 г., 21:39
+-- Время создания: Дек 02 2023 г., 12:16
 -- Версия сервера: 8.0.30
 -- Версия PHP: 7.2.34
 
@@ -39,7 +39,7 @@ CREATE TABLE `Admin` (
 --
 
 INSERT INTO `Admin` (`id`, `Name`, `PhoneNumber`, `Password`) VALUES
-(1, 'Админчик', '1234', '1234');
+(1, 'Олег', '+7 (992) 929 19-92', '1234');
 
 -- --------------------------------------------------------
 
@@ -50,15 +50,18 @@ INSERT INTO `Admin` (`id`, `Name`, `PhoneNumber`, `Password`) VALUES
 CREATE TABLE `Cart` (
   `id` int NOT NULL,
   `id_User` int NOT NULL,
-  `id_Product` int NOT NULL
+  `id_Product` int NOT NULL,
+  `count` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `Cart`
 --
 
-INSERT INTO `Cart` (`id`, `id_User`, `id_Product`) VALUES
-(1, 3, 1);
+INSERT INTO `Cart` (`id`, `id_User`, `id_Product`, `count`) VALUES
+(1, 3, 1, 1),
+(6, 12, 1, 1),
+(7, 12, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -72,13 +75,6 @@ CREATE TABLE `Catalog` (
   `id_Product` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Дамп данных таблицы `Catalog`
---
-
-INSERT INTO `Catalog` (`id`, `id_Office`, `id_Product`) VALUES
-(1, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -88,9 +84,9 @@ INSERT INTO `Catalog` (`id`, `id_Office`, `id_Product`) VALUES
 CREATE TABLE `Employees` (
   `id` int NOT NULL,
   `Name` varchar(255) NOT NULL,
-  `SecondName` varchar(255) NOT NULL,
   `NumberPhone` varchar(255) NOT NULL,
   `Age` int NOT NULL,
+  `Post` varchar(255) NOT NULL,
   `id_Office` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -98,8 +94,8 @@ CREATE TABLE `Employees` (
 -- Дамп данных таблицы `Employees`
 --
 
-INSERT INTO `Employees` (`id`, `Name`, `SecondName`, `NumberPhone`, `Age`, `id_Office`) VALUES
-(1, 'Рабочий', 'Рабочаев', '3уцкцаыа', 12, 1);
+INSERT INTO `Employees` (`id`, `Name`, `NumberPhone`, `Age`, `Post`, `id_Office`) VALUES
+(2, 'Гуляев Михаил Станиславович', '+7 (982) 312 23-42', 23, 'Сушист', 2);
 
 -- --------------------------------------------------------
 
@@ -120,7 +116,7 @@ CREATE TABLE `Office` (
 --
 
 INSERT INTO `Office` (`id`, `nameBar`, `id_Admin`, `Address`, `numberBar`) VALUES
-(1, 'Sakura', 1, 'ул. Тефтеева 25', '+7 (999) 333 44-55');
+(2, 'Хуй сосиска', 1, 'ул. Краснооктябрьская 26', '+7 (999) 888 77-66');
 
 -- --------------------------------------------------------
 
@@ -143,12 +139,46 @@ CREATE TABLE `Product` (
 --
 
 INSERT INTO `Product` (`id`, `Name`, `Price`, `Image`, `id_Type`, `Descript`, `Weight`) VALUES
-(1, 'test', 1, 'image1.jpg', 2, '123123123', 1234),
-(2, 'test2', 2, 'image2.jpg', 3, '12312312', 12341),
-(3, 'test3', 3, 'image1.jpg', 2, 'Norm', 123),
-(4, 'test4', 4, 'image1.jpg', 2, 'norm', 1212),
+(1, 'test1', 1, 'image1.jpg', 1, '123123123', 1234),
+(2, 'test2', 2, 'image2.jpg', 1, '12312312', 12341),
+(3, 'test3', 3, 'image1.jpg', 3, 'Norm', 123),
+(4, 'test4', 4, 'image1.jpg', 3, 'norm', 1212),
 (5, 'test5', 5, 'image1.jpg', 4, 'dfsdf', 12124),
-(6, 'test6', 6, 'image1.jpg', 3, '1212', 1245);
+(6, 'test6', 6, 'image1.jpg', 3, '1212', 1245),
+(7, 'test7', 7, 'image1.jpg', 2, '123123123', 1234),
+(8, 'test8', 8, 'image1.jpg', 1, '123123123', 1234),
+(9, 'test9', 9, 'image1.jpg', 1, '123123123', 1234),
+(10, 'test10', 10, 'image1.jpg', 2, '123123123', 1234),
+(11, 'test11', 11, 'image1.jpg', 2, '123123123', 1234),
+(12, 'test12', 12, 'image1.jpg', 4, '123123123', 1234),
+(13, 'test13', 13, 'image1.jpg', 4, '123123123', 1234),
+(14, 'test14', 14, 'image1.jpg', 4, '123123123', 1234),
+(15, 'test15', 15, 'image1.jpg', 2, '123123123', 1234),
+(16, 'test16', 16, 'image1.jpg', 3, '123123123', 1234),
+(17, 'test17', 17, 'image1.jpg', 4, '123123123', 1234),
+(18, 'test18', 18, 'image1.jpg', 4, '123123123', 1234),
+(19, 'test19', 19, 'image1.jpg', 1, '123123123', 1234),
+(20, 'test20', 20, 'image1.jpg', 1, '123123123', 1234),
+(21, 'test21', 21, 'image1.jpg', 1, '123123123', 1234),
+(22, 'test22', 22, 'image1.jpg', 2, '123123123', 1234),
+(23, 'test23', 23, 'image1.jpg', 1, 'norm', 1212),
+(24, 'test24', 24, 'image1.jpg', 2, '123123123', 1234),
+(25, 'test25', 25, 'image1.jpg', 2, '123123123', 1234),
+(26, 'test26', 26, 'image1.jpg', 1, 'Norm', 123),
+(27, 'test27', 27, 'image1.jpg', 1, '123123123', 1234),
+(28, 'test28', 28, 'image1.jpg', 2, 'Norm', 123),
+(29, 'test29', 29, 'image2.jpg', 3, '12312312', 12341),
+(30, 'test30', 30, 'image2.jpg', 4, '12312312', 12341),
+(31, 'test31', 31, 'image1.jpg', 3, 'Norm', 123),
+(32, 'test32', 32, 'image1.jpg', 3, 'Norm', 123),
+(33, 'test33', 33, 'image1.jpg', 2, 'Norm', 123),
+(34, 'test34', 34, 'image1.jpg', 2, 'Norm', 123),
+(35, 'test35', 35, 'image1.jpg', 4, 'Norm', 123),
+(36, 'test36', 36, 'image1.jpg', 4, 'Norm', 123),
+(37, 'test37', 37, 'image1.jpg', 3, 'Norm', 123),
+(38, 'test38', 38, 'image1.jpg', 3, 'Norm', 123),
+(39, 'test39', 39, 'image1.jpg', 4, 'Norm', 123),
+(40, 'test40', 40, 'image1.jpg', 3, 'Norm', 123);
 
 -- --------------------------------------------------------
 
@@ -182,8 +212,8 @@ CREATE TABLE `User` (
   `Name` varchar(255) NOT NULL,
   `SecondName` varchar(255) NOT NULL,
   `NumberPhone` varchar(255) NOT NULL,
-  `Score` int NOT NULL,
-  `CarColor` varchar(255) NOT NULL,
+  `Score` int DEFAULT NULL,
+  `CarColor` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -193,17 +223,18 @@ CREATE TABLE `User` (
 --
 
 INSERT INTO `User` (`id`, `Name`, `SecondName`, `NumberPhone`, `Score`, `CarColor`, `Email`, `Password`) VALUES
-(1, 'Женек', 'Манаев', '1234', 1, 'red', '1234', '1234'),
-(2, 'куцк', 'уцкцу', 'цуккцу', 2, 'green', '3123', '423выв'),
-(3, 'ыаыв', 'выаыуа', 'ываыва', 3, '#ffffff', 'ываыв', '3ааца3'),
-(4, 'ыаыва', 'выаыва', 'аывуа', 14, 'blue', 'ываыв', 'ваыаыв'),
-(5, 'ываыв', 'ывав', 'ываыва', 500, 'white', 'ываыва', 'ываыва'),
-(6, 'ываыв', 'аываыв', 'аыва', 6, 'black', 'ываыв', 'ываыв'),
-(7, 'ываы', 'ваыаы', 'ыва', 15, 'gray', 'ывав', 'аываыва'),
-(8, 'ываыва', 'ываыва', 'ываыва', 18, 'light-green', 'ыав', 'ываыва'),
+(1, 'Женек', 'Манаев', '1234', 600, 'red', '1234', '1234'),
+(2, 'куцк', 'уцкцу', 'цуккцу', 2323300, 'green', '3123', '423выв'),
+(3, 'ыаыв', 'выаыуа', 'ываыва', 300000, '#ffffff', 'ываыв', '3ааца3'),
+(4, 'ыаыва', 'выаыва', 'аывуа', 140000, 'blue', 'ываыв', 'ваыаыв'),
+(5, 'ываыв', 'ывав', 'ываыва', 500000, 'white', 'ываыва', 'ываыва'),
+(6, 'ываыв', 'аываыв', 'аыва', 60000, 'black', 'ываыв', 'ываыв'),
+(7, 'ываы', 'ваыаы', 'ыва', 700, 'gray', 'ывав', 'аываыва'),
+(8, 'ываыва', 'ываыва', 'ываыва', 1800, 'light-green', 'ыав', 'ываыва'),
 (9, 'аываыва', 'ываываы', 'выываыв', 9, 'purple', 'ыаывыва', 'выаыва'),
 (10, 'выаываыа', 'ываыва', 'выаываыва', 101, 'pink', 'авыаыв', 'аываыва'),
-(11, 'lol', 'lol', 'lol', 600, 'white', 'lol', 'lol');
+(11, 'lol', 'lol', 'lol', 600, 'white', 'lol', 'lol'),
+(12, 'test', 'test', 'test', NULL, NULL, 'test@test', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
 
 --
 -- Индексы сохранённых таблиц
@@ -278,7 +309,7 @@ ALTER TABLE `Admin`
 -- AUTO_INCREMENT для таблицы `Cart`
 --
 ALTER TABLE `Cart`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `Catalog`
@@ -290,19 +321,19 @@ ALTER TABLE `Catalog`
 -- AUTO_INCREMENT для таблицы `Employees`
 --
 ALTER TABLE `Employees`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `Office`
 --
 ALTER TABLE `Office`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `Product`
 --
 ALTER TABLE `Product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT для таблицы `ProductType`
@@ -314,7 +345,7 @@ ALTER TABLE `ProductType`
 -- AUTO_INCREMENT для таблицы `User`
 --
 ALTER TABLE `User`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
