@@ -16,19 +16,22 @@ function Tovar(){
         })
     },[]);
 
-    function delTovar(Name, Price, Weight, kategoriya, descripts){
-        const nameTovar = Name;
-        const priceTovar = Price;
-        const weightTovar = Weight;
-        const kategori = kategoriya;
-        const descript = descripts;
+    function delTovar(Id_tovar, Name, Price, Weight, kategoriya, descripts){
+        
+        const Id = Id_tovar;
 
-        axios.post('http://localhost:5000/delitedTovar', {nameTovar:nameTovar, priceTovar:priceTovar, weightTovar:weightTovar, kategori:kategori, descript:descript})
+        axios.post('http://localhost:5000/delitedTovar', {Id:Id})
         .then((response)=>{
             console.log(response);
         })
+    }
+
+    let changer = false;
+
+    function сhangeTovar(){
 
     }
+
 
     return(
         <div className='contentTovar'>
@@ -50,7 +53,6 @@ function Tovar(){
                                         <p>Цена: {item.Price}</p>
                                         <p>Вес: {item.Weight}г.</p>
                                         <p>Категория: {item.name}</p>
-                                        
                                     </div>
                                     <div className='infoTov'>
                                         <h1>Описание</h1>
@@ -58,8 +60,8 @@ function Tovar(){
                                     </div>
                                 </div>
                                 <div className='settings'>
-                                    <input type="button" value="Изменить"/>
-                                    <input type="button" onClick={delTovar(item.Name, item.Price, item.Weight, item.name, item.Descript)} value="Удалить" />
+                                    <input type="button" onClick={() => сhangeTovar()} value="Изменить"/>
+                                    <input type="button" onClick={() => delTovar(item.id)} value="Удалить" />
                                 </div>
                             </Popup>
                         </div>

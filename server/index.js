@@ -32,8 +32,9 @@ const addBar = "INSERT INTO Office(nameBar, id_Admin, Address, numberBar) VALUES
 const addPersonal = "INSERT INTO Employees (Name, NumberPhone, Age, Post, id_Office) SELECT ?,?,?,?, id FROM Office WHERE nameBar = ?"
 const getPersonal = "SELECT Name, NumberPhone, Age, Post, Office.nameBar FROM `Employees` INNER JOIN Office ON id_Office = Office.id"
 const login = "SELECT * FROM `Admin` WHERE PhoneNumber=? AND Password=?"
-const getTovar = "SELECT Product.Name, Price, Descript, Weight, ProductType.name FROM `Product` INNER JOIN ProductType ON id_Type = ProductType.id"
-const delitedTovar = "DELETE FROM Product WHERE `Product`.`Name` = ?";
+const getTovar = "SELECT Product.id, Product.Name, Price, Descript, Weight, ProductType.name FROM `Product` INNER JOIN ProductType ON id_Type = ProductType.id"
+const delitedTovar = "DELETE FROM Product WHERE Product.id = ?";
+const delCart = "DELETE FROM Cart WHERE Cart.id_Product=?"
 
 app.post('/infoBar', (req, res)=>{
 
@@ -50,13 +51,13 @@ app.post('/infoBar', (req, res)=>{
 
 app.post('/delitedTovar', (req,res)=>{
   
-  const nameTovar = req.body.nameTovar;
-  const priceTovar = req.body.priceTovar;
-  const weightTovar = req.body.weightTovar;
-  const kategori = req.body.kategori;
-  const descript = req.body.descript;
 
-  connection.query(delitedTovar, [nameTovar], (err,results)=>{
+  const Id = req.body.Id;
+
+  connection.query(delCart, [Id], (err, results)=>{
+    console.log(err,results);
+  })
+  connection.query(delitedTovar, [Id], (err,results)=>{
     console.log(err,results);
   })
 })
