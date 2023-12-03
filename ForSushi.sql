@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 02 2023 г., 12:16
+-- Время создания: Дек 03 2023 г., 18:42
 -- Версия сервера: 8.0.30
 -- Версия PHP: 7.2.34
 
@@ -53,15 +53,6 @@ CREATE TABLE `Cart` (
   `id_Product` int NOT NULL,
   `count` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Дамп данных таблицы `Cart`
---
-
-INSERT INTO `Cart` (`id`, `id_User`, `id_Product`, `count`) VALUES
-(1, 3, 1, 1),
-(6, 12, 1, 1),
-(7, 12, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -139,46 +130,31 @@ CREATE TABLE `Product` (
 --
 
 INSERT INTO `Product` (`id`, `Name`, `Price`, `Image`, `id_Type`, `Descript`, `Weight`) VALUES
-(1, 'test1', 1, 'image1.jpg', 1, '123123123', 1234),
-(2, 'test2', 2, 'image2.jpg', 1, '12312312', 12341),
-(3, 'test3', 3, 'image1.jpg', 3, 'Norm', 123),
-(4, 'test4', 4, 'image1.jpg', 3, 'norm', 1212),
-(5, 'test5', 5, 'image1.jpg', 4, 'dfsdf', 12124),
-(6, 'test6', 6, 'image1.jpg', 3, '1212', 1245),
-(7, 'test7', 7, 'image1.jpg', 2, '123123123', 1234),
-(8, 'test8', 8, 'image1.jpg', 1, '123123123', 1234),
-(9, 'test9', 9, 'image1.jpg', 1, '123123123', 1234),
-(10, 'test10', 10, 'image1.jpg', 2, '123123123', 1234),
-(11, 'test11', 11, 'image1.jpg', 2, '123123123', 1234),
-(12, 'test12', 12, 'image1.jpg', 4, '123123123', 1234),
-(13, 'test13', 13, 'image1.jpg', 4, '123123123', 1234),
-(14, 'test14', 14, 'image1.jpg', 4, '123123123', 1234),
-(15, 'test15', 15, 'image1.jpg', 2, '123123123', 1234),
-(16, 'test16', 16, 'image1.jpg', 3, '123123123', 1234),
-(17, 'test17', 17, 'image1.jpg', 4, '123123123', 1234),
-(18, 'test18', 18, 'image1.jpg', 4, '123123123', 1234),
-(19, 'test19', 19, 'image1.jpg', 1, '123123123', 1234),
-(20, 'test20', 20, 'image1.jpg', 1, '123123123', 1234),
-(21, 'test21', 21, 'image1.jpg', 1, '123123123', 1234),
-(22, 'test22', 22, 'image1.jpg', 2, '123123123', 1234),
-(23, 'test23', 23, 'image1.jpg', 1, 'norm', 1212),
-(24, 'test24', 24, 'image1.jpg', 2, '123123123', 1234),
-(25, 'test25', 25, 'image1.jpg', 2, '123123123', 1234),
-(26, 'test26', 26, 'image1.jpg', 1, 'Norm', 123),
-(27, 'test27', 27, 'image1.jpg', 1, '123123123', 1234),
-(28, 'test28', 28, 'image1.jpg', 2, 'Norm', 123),
-(29, 'test29', 29, 'image2.jpg', 3, '12312312', 12341),
-(30, 'test30', 30, 'image2.jpg', 4, '12312312', 12341),
-(31, 'test31', 31, 'image1.jpg', 3, 'Norm', 123),
-(32, 'test32', 32, 'image1.jpg', 3, 'Norm', 123),
-(33, 'test33', 33, 'image1.jpg', 2, 'Norm', 123),
-(34, 'test34', 34, 'image1.jpg', 2, 'Norm', 123),
-(35, 'test35', 35, 'image1.jpg', 4, 'Norm', 123),
-(36, 'test36', 36, 'image1.jpg', 4, 'Norm', 123),
-(37, 'test37', 37, 'image1.jpg', 3, 'Norm', 123),
-(38, 'test38', 38, 'image1.jpg', 3, 'Norm', 123),
-(39, 'test39', 39, 'image1.jpg', 4, 'Norm', 123),
-(40, 'test40', 40, 'image1.jpg', 3, 'Norm', 123);
+(87, 'test5', 1, 'image1.jpg', 1, 'test1', 1),
+(88, 'test6', 1, 'image1.jpg', 1, 'test1', 1),
+(89, 'test7', 1, 'image10.jpg', 1, 'test1', 1),
+(90, 'test8', 1, 'image10.jpg', 1, 'test1', 1),
+(92, 'test10', 1, 'image10.jpg', 1, 'test1', 1),
+(93, 'test1', 1, 'image1.jpg', 1, 'test1', 1),
+(94, 'test2', 1, 'image1.jpg', 1, 'test1', 1),
+(95, 'test3', 1, 'image1.jpg', 1, 'test1', 1),
+(96, 'test4', 1, 'image1.jpg', 1, 'test1', 1),
+(97, 'test5', 1, 'image1.jpg', 1, 'test1', 1),
+(98, 'test6', 1, 'image1.jpg', 1, 'test1', 1),
+(99, 'test7', 1, 'image10.jpg', 1, 'test1', 1),
+(100, 'test8', 1, 'image10.jpg', 1, 'test1', 1),
+(101, 'test9', 1, 'image10.jpg', 1, 'test1', 1),
+(102, 'test10', 1, 'image10.jpg', 1, 'test1', 1),
+(103, 'test1', 1, 'image1.jpg', 1, 'test1', 1),
+(104, 'test2', 1, 'image1.jpg', 1, 'test1', 1),
+(105, 'test3', 1, 'image1.jpg', 1, 'test1', 1),
+(106, 'test4', 1, 'image1.jpg', 1, 'test1', 1),
+(107, 'test5', 1, 'image1.jpg', 1, 'test1', 1),
+(108, 'test6', 1, 'image1.jpg', 1, 'test1', 1),
+(109, 'test7', 1, 'image10.jpg', 1, 'test1', 1),
+(110, 'test8', 1, 'image10.jpg', 1, 'test1', 1),
+(111, 'test9', 1, 'image10.jpg', 1, 'test1', 1),
+(112, 'test10', 1, 'image10.jpg', 1, 'test1', 1);
 
 -- --------------------------------------------------------
 
@@ -333,7 +309,7 @@ ALTER TABLE `Office`
 -- AUTO_INCREMENT для таблицы `Product`
 --
 ALTER TABLE `Product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT для таблицы `ProductType`
