@@ -32,6 +32,8 @@ const addBar = "INSERT INTO Office(nameBar, id_Admin, Address, numberBar) VALUES
 const addPersonal = "INSERT INTO Employees (Name, NumberPhone, Age, Post, id_Office) SELECT ?,?,?,?, id FROM Office WHERE nameBar = ?"
 const getPersonal = "SELECT Name, NumberPhone, Age, Post, Office.nameBar FROM `Employees` INNER JOIN Office ON id_Office = Office.id"
 const login = "SELECT * FROM `Admin` WHERE PhoneNumber=? AND Password=?"
+const getTovar = "SELECT Product.Name, Price, Descript, Weight, ProductType.name FROM `Product` INNER JOIN ProductType ON id_Type = ProductType.id"
+const delitedTovar = "DELETE FROM Product WHERE `Product`.`Name` = ?";
 
 app.post('/infoBar', (req, res)=>{
 
@@ -44,6 +46,19 @@ app.post('/infoBar', (req, res)=>{
     // console.log(err,results);
   })
   // console.log(nameBar);
+})
+
+app.post('/delitedTovar', (req,res)=>{
+  
+  const nameTovar = req.body.nameTovar;
+  const priceTovar = req.body.priceTovar;
+  const weightTovar = req.body.weightTovar;
+  const kategori = req.body.kategori;
+  const descript = req.body.descript;
+
+  connection.query(delitedTovar, [nameTovar], (err,results)=>{
+    console.log(err,results);
+  })
 })
 
 app.post('/personal', (req,res)=>{
@@ -98,6 +113,14 @@ app.post('/login', (req, res)=> {
     }else{
       res.send({massege: "Wrong login/password combination!"});
     }
+  })
+})
+
+app.post('/getTovar', (req,res)=>{
+  connection.query(getTovar,function(err,results){
+    if(err) console.log(err);
+    console.log(results);
+    res.send(results);
   })
 })
 

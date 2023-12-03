@@ -1,0 +1,72 @@
+.contentTovar{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.buttonAddTovar{
+ width: 300px;
+ text-align: center;
+ background-color: var(--color-button);
+ color: var(--color-text);
+ padding: 10px;
+ border-radius: 5px;
+ margin: 10px;
+}
+.buttonAddTovar:hover{
+    cursor: pointer;
+    background-color: var(--color-text);
+    color: var(--color-primary);
+}
+.tovar{
+    display: flex;
+    flex-direction: row;
+    color: var(--color-text);
+
+}
+.tovar p{
+    display: flex;
+    margin: 2px;
+    padding: 10px;
+    width: 150px;
+    background-color: var(--color-primary);
+}
+.infTovar{
+    background-color: var(--color-button);
+    border: none;
+    border-radius: 5px;
+    margin: 2px;
+    color: var(--color-text);
+}
+.infTovar:hover{
+    cursor: pointer;
+    background-color: var(--color-text);
+    color: var(--color-primary);
+}
+.InformationTovar{
+    display: flex;
+    padding: 10px;
+    color: var(--color-text);
+}
+.microInf{
+    margin: 10px;
+}
+.infoTov{
+    margin: 10px;
+}
+.settings{
+    display: flex;
+    justify-content: space-around;
+}
+.settings input{
+    padding: 10px;
+    background-color: var(--color-button);
+    color: var(--color-text);
+    border: none;
+    border-radius: 5px;
+}
+.settings input:hover{
+    cursor: pointer;
+    background-color: var(--color-text);
+    color: var(--color-primary);
+}
