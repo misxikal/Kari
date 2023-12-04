@@ -35,6 +35,8 @@ const login = "SELECT * FROM `Admin` WHERE PhoneNumber=? AND Password=?"
 const getTovar = "SELECT Product.id, Product.Name, Price, Descript, Weight, ProductType.name FROM `Product` INNER JOIN ProductType ON id_Type = ProductType.id"
 const delitedTovar = "DELETE FROM Product WHERE Product.id = ?";
 const delCart = "DELETE FROM Cart WHERE Cart.id_Product=?"
+const addTovar = "INSERT INTO Product (Name, Price, Image, id_Type, Descript, Weight) SELECT ?,?, ?, id, ?, ? FROM ProductType WHERE name=?"
+
 
 app.post('/infoBar', (req, res)=>{
 
@@ -71,6 +73,19 @@ app.post('/personal', (req,res)=>{
   const BarPers = req.body.BarPers;
 
   connection.query(addPersonal, [NamePers,PhonePers,AgePers,PostPers,BarPers], (err, results)=>{
+    console.log(err,results);
+  })
+
+})
+
+app.post('/addTovar', (req,res)=>{
+  const NameTovar = req.body.NameTovar;
+  const priceTovar = req.body.priceTovar;
+  const weightTovar = req.body.weightTovar;
+  const kategorTovar = req.body.kategorTovar;
+  const descriptTovar = req.body.descriptTovar;
+  
+  connection.query(addTovar, [NameTovar, priceTovar, "Пусто", descriptTovar, weightTovar, kategorTovar], (err, results)=>{
     console.log(err,results);
   })
 

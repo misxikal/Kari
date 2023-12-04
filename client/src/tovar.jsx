@@ -8,6 +8,20 @@ function Tovar(){
     
     const [getTovar, setGetTovar] = useState([]);
 
+    const [NameTovar, setNameTovar] = useState('');
+    const [priceTovar, setPriceTovar] = useState('');
+    const [weightTovar, setWeightTovar] = useState('');
+    const [kategorTovar, setKategorTovar] = useState('');
+    const [descriptTovar, setDescriptTovar] = useState('');
+
+
+    function addTovar(){
+        axios.post('http://localhost:5000/addTovar', {NameTovar:NameTovar, priceTovar:priceTovar, weightTovar:weightTovar, kategorTovar:kategorTovar, descriptTovar:descriptTovar})
+        .then((response)=>{
+            console.log(response);
+        })
+    }
+
     useEffect(()=>{
         axios.post('http://localhost:5000/getTovar')
         .then(response => {
@@ -36,7 +50,29 @@ function Tovar(){
     return(
         <div className='contentTovar'>
             <Popup trigger={<div className='buttonAddTovar'>Добавить товар</div>}>
-
+                <div>
+                    <p>Название</p>
+                    <input type="text" onChange={(e)=>{
+                        setNameTovar(e.target.value);
+                    }}/>
+                    <p>Цена</p>
+                    <input type='text' placeholder='+7 (999) 999 99-99' onChange={(e)=>{
+                        setPriceTovar(e.target.value);
+                    }}/>
+                    <p>Вес</p>
+                    <InputMask mask="99" maskChar={null} type='text' placeholder='Возраст работника' onChange={(e)=>{
+                        setWeightTovar(e.target.value);
+                    }}/>
+                    <p>Категория</p>
+                    <input type="text" onChange={(e)=>{
+                        setKategorTovar(e.target.value);
+                    }}/>
+                    <p>Описание</p>
+                    <input type="text" onChange={(e)=>{
+                        setDescriptTovar(e.target.value);
+                    }}/>
+                    <input type="button" value="Добавить" onClick={addTovar}/>
+                </div>
             </Popup>
             <div className='getTovar'>
                 {
